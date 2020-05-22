@@ -1,5 +1,10 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 void main(){
+	char s[]="abc";
+	int n=2;
 	char* reverseLeftWords(char* s, int n){
 		int len = strlen(s),i = 0;;
 		char *ans = malloc(sizeof(char) * (len + 1));
