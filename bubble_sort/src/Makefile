@@ -1,4 +1,4 @@
-a:a.o
+bubble_sort:bubble_sort.o
 	gcc -o $@ $^
 .c.o:
 	gcc -c $<

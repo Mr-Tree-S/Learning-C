@@ -1,29 +1,19 @@
 #include <unistd.h>
 #include <stdio.h>
 
-int global=0;
 
-int main(void) {
-	int local=0;
-	printf("int global=%d, local=%d\n", global, local);
-	pid_t child_pid=fork();
+int main(void)
+{
+	int i=0;
+	printf("i	son/parent	ppid	pid	fpid\n");
 
-	if(child_pid == 0) {
-		global++;
-		local++;
-
-		printf("child running, global=%d, local=%d\n", global, local);
+	for(i=0;i<2;i++){
+		pid_t fpid=fork();
+		if(fpid == 0)
+		printf("%d	son		%4d	%4d	%4d\n", i, getppid(), getpid(), fpid);
+		else
+		printf("%d	parent		%4d	%4d	%4d\n", i, getppid(), getpid(), fpid);
 	}
-	else if(child_pid > 0) {
-		global++;
-		local++;
-
-		printf("parent running, global=%d, local=%d\n", global, local);
-	}
-	else {
-		printf("Fork error\n");
-	}
-
 	return 0;
 }
 
