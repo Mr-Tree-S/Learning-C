@@ -1,14 +1,11 @@
 #include <stdio.h>
 
+#define n 10
+
 int main()
 {
 	int x,i;
-	const int n=10;
-	int count[n];
-
-	for(i=0;i<n;i++){
-		count[i]=0;
-	}
+	int count[n]={0};
 
 	scanf("%d",&x);
 	while(x != -1){
