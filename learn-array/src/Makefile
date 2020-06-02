@@ -1,4 +1,4 @@
-sizeof:sizeof.o
+array:array.o
 	gcc -o $@ $^
 .c.o:
 	gcc -c $<
