@@ -7,7 +7,7 @@
 #include <unistd.h>
 #include <arpa/inet.h>
 #include <signal.h>
-#define portN 10001
+#define port_N 10001
 
 #define ERR_EXIT(m) \
      do {  \
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 	struct sockaddr_in Caddr;
     memset(&Caddr, 0, sizeof(Caddr));
     Caddr.sin_family = AF_INET;
-    Caddr.sin_port = htons(portN);
+    Caddr.sin_port = htons(port_N);
     Caddr.sin_addr.s_addr = inet_addr(argv[1]);
 //  Caddr.sin_addr.s_addr = inet_addr("127.0.0.1");
 

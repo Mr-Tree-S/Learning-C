@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     Saddr.sin_family = AF_INET;
     Saddr.sin_port = htons(port_N);
     Saddr.sin_addr.s_addr = htonl(INADDR_ANY);	//INADDR_ANY表示本机IP
-//	server_addr.sin_addr.s_addr = inet_addr("192.168.1.1");
+//	Saddr.sin_addr.s_addr = inet_addr("0.0.0.0");
 
 	/* 绑定函数bind() */
     if(bind(sockfd, (struct sockaddr*)&Saddr, sizeof(Saddr)) < 0) {
