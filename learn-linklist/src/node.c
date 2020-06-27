@@ -2,17 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
-typedef struct _node{
-	int value;
-	struct _node *next;
-}Node;
-*/
-
-typedef struct _list{
-	Node *head;
-//	Node *tail;
-}List;
 
 void add(List *pList, int number)
 {
@@ -31,8 +20,6 @@ void add(List *pList, int number)
 	}else{
 		pList->head=p;
 	}
-
-	return 0;
 }
 
 void printf_node(List *pList)
@@ -42,8 +29,6 @@ void printf_node(List *pList)
 		printf("%d ", p->value);
 	}
 	printf("\n");
-
-	return 0;
 }
 
 int main(int argc, char const *argv[])
@@ -51,29 +36,26 @@ int main(int argc, char const *argv[])
 	int number;
 	List list;
 	list.head=NULL;
-	do{
-		scanf("%d",&number);
-		if(number != -1){
-			head=add(&list, number);
+	do {
+		scanf("%d", &number);
+		if (number != -1) {
+			add(&list, number);
 		}
-	}while(number != -1);
+	} while (number != -1);
 	printf_node(&list);
-	
+
+/*
 	Node *p;
-	for(p=list.head; p; p=p->next){
-		if(p->value=number){
+	for (p=list.head; p; p=p->next) {
+		if (p->value = number) {
 			printf("OhYeah! Find it!\n");
 			break;
-		}else{
+		} else {
 			printf("404 NOT FOUND");
 			break;
 		}
 	}
-
-	for(p=head; p; p=q){
-		q=p->next;
-		free(p);
-	}
+*/
 
 	return 0;
 }
