@@ -1,6 +1,7 @@
-a:a.o
+goldbach:goldbach.o
 	gcc -o $@ $^
 .c.o:
 	gcc -c $<
 clean:
-	rm -rf *.o a
+	rm -rf *.o
+
