@@ -60,7 +60,3 @@ bool isLeap(struct date d){
 
 	return leap;
 }
-		
-		
-		
-

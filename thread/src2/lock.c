@@ -2,20 +2,21 @@
 #include <stdlib.h>
 #include <pthread.h>
 
-pthread_mutex_t lock;
 
 int s = 0;
+
+pthread_mutex_t lock;
 
 void *myfunc(void *args)
 {
 	int i = 0;
 	for (i = 0; i < 1000000; i++) {
-//		pthread_mutex_lock(&lock);
+		pthread_mutex_lock(&lock);
 		s++;
-//		pthread_mutex_unlock(&lock);
+		pthread_mutex_unlock(&lock);
 	}
-	return NULL;
 }
+
 
 int main()
 {
@@ -28,6 +29,7 @@ int main()
 
 	pthread_join(th1, NULL);
 	pthread_join(th2, NULL);
+	pthread_mutex_destroy(&lock);
 	
 	printf("s=%d\n", s);
 	return 0;
