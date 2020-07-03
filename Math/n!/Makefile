@@ -1,4 +1,4 @@
-factorial:factorial.o
+n:n.o
 	gcc -o $@ $^
 .c.o:
 	gcc -c $<

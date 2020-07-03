@@ -3,4 +3,4 @@ bubble_sort:bubble_sort.o
 .c.o:
 	gcc -c $<
 clean:
-	rm -rf *.o main
+	rm -rf *.o
