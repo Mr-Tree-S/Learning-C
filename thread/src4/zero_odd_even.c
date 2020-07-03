@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <pthread.h>
 
 
@@ -8,7 +9,7 @@ typedef struct {
 	pthread_mutex_t lock0;
 	pthread_mutex_t lock1;
 	pthread_mutex_t lock2;
-	int flag;
+	bool flag;
 }Lock;
 
 Lock *LockCreat(int n)
@@ -16,7 +17,7 @@ Lock *LockCreat(int n)
 	Lock *L = (Lock*)malloc(sizeof(Lock));
 
 	L->n = n;
-	L->flag = 1;
+	L->flag = true;
 	pthread_mutex_init(&L->lock0, NULL);
 	pthread_mutex_init(&L->lock1, NULL);
 	pthread_mutex_init(&L->lock2, NULL);
@@ -80,11 +81,11 @@ int main()
 {
 	int n;
 	scanf("%d", &n);
+
 	pthread_t th1;
 	pthread_t th2;
 	pthread_t th3;
 	Lock *L = LockCreat(n);
-
 
 	pthread_create(&th1, NULL, Zero, L);
 	pthread_create(&th2, NULL, Odd, L);
@@ -94,6 +95,8 @@ int main()
 	pthread_join(th2, NULL);
 	pthread_join(th3, NULL);
 	LockFree(L);
-	
+
+	printf("\n");
+
 	return 0;
 }
