@@ -1,4 +1,4 @@
-node:node.o
+josephus:josephus.o
 	gcc -o $@ $^
 .c.o:
 	gcc -c $<

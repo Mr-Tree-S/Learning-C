@@ -77,11 +77,11 @@ void change_node(List *pList, int number, int data)
 
 void free_node(List *pList)
 {
-	Node *pre = pList->head;
+	Node *p = pList->head;
 	Node *temp;
-	while (pre) {
-		temp = pre;
-		pre = pre->next;
+	while (p) {
+		temp = p;
+		p = p->next;
 		free(temp);
 	}
 	pList->head = NULL;
@@ -89,9 +89,10 @@ void free_node(List *pList)
 
 void printf_node(List *pList)
 {
-	Node *p;
-	for(p=pList->head; p; p=p->next){
+	Node *p = pList->head;
+	while (p) {
 		printf("%d ", p->val);
+		p = p->next;
 	}
 	printf("\n");
 }
