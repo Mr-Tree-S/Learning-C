@@ -5,19 +5,19 @@
 typedef struct linelist{
 	int *list;
 	int len;
-	int MAXLEN;
+	int max;
 }List;
 
-List *create_list(int MAXLEN)
+List *create_list(int max)
 {
 	List *pList = (List*)malloc(sizeof(List));
-	if (pList != NULL) {
-		pList->list = (int*)malloc(sizeof(int)*MAXLEN);
-		if (pList->list == NULL)
-			return NULL;
-		pList->len = 0;
-		pList->MAXLEN = MAXLEN;
-	}
+	if (pList == NULL)
+		return NULL;
+	pList->list = (int*)malloc(sizeof(int)*max);
+	if (pList->list == NULL)
+		return NULL;
+	pList->len = 0;
+	pList->max = max;
 	return pList;
 }
 
@@ -35,7 +35,7 @@ void free_list(List *pList)
 int ins_node(List *pList, int number, int data)
 {
 	int n = number;
-	if (n < 0 || n > pList->len || pList->len == pList->MAXLEN)
+	if (n < 0 || n > pList->len || pList->len == pList->max)
 		return -1;
 	for (int i = pList->len; i > n; i--)
 		pList->list[i] = pList->list[i-1];
@@ -70,7 +70,8 @@ int find_node(List *pList, int data)
 
 int main()
 {
-	List *L = create_list(20);
+	int m = 20;
+	List *L = create_list(m);
 
 	for (int i = 0; i<10; i++) {
 		ins_node(L, i, i);

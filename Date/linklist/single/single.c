@@ -6,7 +6,7 @@ typedef struct node {
 	struct node *next;
 }Node;
 
-typedef struct list {
+typedef struct linklist {
 	Node *head;
 //	Node *tail;
 }List;
