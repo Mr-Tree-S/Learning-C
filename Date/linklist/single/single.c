@@ -11,7 +11,7 @@ typedef struct list {
 //	Node *tail;
 }List;
 
-void create_node(List *pList, int data)
+void create_list(List *pList, int data)
 {
 //	add to linked-list
 	Node *p = (Node*)malloc(sizeof(Node));
@@ -27,6 +27,28 @@ void create_node(List *pList, int data)
 	}else{
 		pList->head = p;	// head node
 	}
+}
+
+void printf_list(List *pList)
+{
+	Node *p = pList->head;
+	while (p) {
+		printf("%d ", p->val);
+		p = p->next;
+	}
+	printf("\n");
+}
+
+void free_list(List *pList)
+{
+	Node *p = pList->head;
+	Node *temp;
+	while (p) {
+		temp = p;
+		p = p->next;
+		free(temp);
+	}
+	pList->head = NULL;
 }
 
 void del_node(List *pList, int number)
@@ -75,28 +97,6 @@ void change_node(List *pList, int number, int data)
 	}
 }
 
-void free_node(List *pList)
-{
-	Node *p = pList->head;
-	Node *temp;
-	while (p) {
-		temp = p;
-		p = p->next;
-		free(temp);
-	}
-	pList->head = NULL;
-}
-
-void printf_node(List *pList)
-{
-	Node *p = pList->head;
-	while (p) {
-		printf("%d ", p->val);
-		p = p->next;
-	}
-	printf("\n");
-}
-
 
 int main(int argc, char const *argv[])
 {
@@ -107,7 +107,7 @@ int main(int argc, char const *argv[])
 	do {
 		scanf("%d", &n);
 		if (n != 0) {
-			create_node(&L, n);
+			create_list(&L, n);
 		}
 	} while (n != 0);
 	
@@ -115,11 +115,11 @@ int main(int argc, char const *argv[])
 	del_node(&L, 3);
 	change_node(&L, 3, 3);
 
-	printf_node(&L);
+	printf_list(&L);
 
-	free_node(&L);
+	free_list(&L);
 	printf("after free\n");
-	printf_node(&L);
+	printf_list(&L);
 
 	return 0;
 }
