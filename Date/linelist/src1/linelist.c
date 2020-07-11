@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 
-typedef struct linelist{
+typedef struct linelist {
 	int *list;
 	int len;
 	int max;

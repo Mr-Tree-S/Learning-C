@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 
-typedef struct queuelist{
+typedef struct queuelist {
 	int *list;
 	int front;
 	int rear;

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 
-typedef struct stacklist{
+typedef struct stacklist {
 	int *list;
 	int top;
 	int bottom;
