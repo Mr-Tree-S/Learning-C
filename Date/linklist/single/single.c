@@ -101,7 +101,7 @@ void change_node(List *pList, int number, int data)
 int main(int argc, char const *argv[])
 {
 	List L;
-	L.head=NULL;
+	L.head = NULL;
 	int n;
 
 	do {

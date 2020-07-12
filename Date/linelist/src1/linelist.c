@@ -77,12 +77,12 @@ int main()
 		ins_node(L, i, i);
 	}
 	
-	ins_node(L, 1, 110);
-	del_node(L, 1);
+//	ins_node(L, 1, 110);
+//	del_node(L, 1);
 	printf_list(L);
 
-	find_node(L, 1);
-	find_node(L, 11);
+//	find_node(L, 1);
+//	find_node(L, 11);
 
 	free_list(L);
 
