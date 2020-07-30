@@ -3,7 +3,7 @@
 #include <pthread.h>
 
 
-int arr[5000];
+int arr[4000];
 
 typedef struct {
 	int first;
@@ -28,15 +28,16 @@ void *myfunc(void *args)
 int main()
 {
 	int i;
-	for (i = 0; i<5000; i++) {
-		arr[i] = rand()%50;
+	for (i = 0; i<4000; i++) {
+//		arr[i] = rand()%100;
+		arr[i] = 1;
 	}
 
 	pthread_t th1;
 	pthread_t th2;
 	
-	MY_ARGS args1 = {0, 2500, 0};
-	MY_ARGS args2 = {2500, 5000, 0};
+	MY_ARGS args1 = {0, 2000, 0};
+	MY_ARGS args2 = {2000, 4000, 0};
 
 	pthread_create(&th1, NULL, myfunc, &args1);
 	pthread_create(&th2, NULL, myfunc, &args2);
@@ -47,7 +48,7 @@ int main()
 	int s1 = args1.result;
 	int s2 = args2.result;
 	printf("s1=%d\n", s1);
-	printf("s1=%d\n", s1);
+	printf("s2=%d\n", s2);
 
 	printf("s1+s2=%d\n", s1+s2);
 	return 0;

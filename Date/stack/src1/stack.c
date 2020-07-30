@@ -5,7 +5,6 @@
 typedef struct stacklist {
 	int *list;
 	int top;
-	int bottom;
 	int max;
 }List;
 
@@ -18,7 +17,6 @@ List *create_list(int max)
 	if (pList->list == NULL)
 		return NULL;
 	pList->top = 0;
-	pList->bottom = 0;
 	pList->max = max;
 	return pList;
 }
@@ -42,7 +40,7 @@ int push(List *pList, int data)
 
 int pop(List *pList)
 {
-	if (pList->top > pList->bottom) {
+	if (pList->top >= 0) {
 		pList->top--;
 		return pList->list[pList->top];
 	}
