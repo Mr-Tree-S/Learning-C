@@ -20,14 +20,13 @@ void create_node(List *pList, int data)
 //	find the last
 	Node *last = pList->head;
 	if (last) {
-		while(last->next != pList->head){
+		while (last->next != pList->head) {
 			last = last->next;
 		}
 		last->next = p;		// add tail node
-	}else{
+	} else {
 		pList->head = p;	// head node
 	}
-
 	p->next = pList->head;		// add cyclic node
 }
 
