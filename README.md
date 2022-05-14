@@ -1,1 +1,2 @@
-### Recording the Learning Process of C Programming
+# Learning-C
+Recording the Learning Process of C Programming
